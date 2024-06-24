@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebViewCommunication</title>
+    <script src="responsivevoice_1.8.1.js"></script>
+    <script type="text/javascript">
+
+function voiceStartCallback() {
+    interface.start()
+    console.log("Voice started");
+}
+
+function voiceEndCallback() {
+    interface.end()
+    console.log("Voice ended");
+}
+
+
+var parameters = {
+    onstart: voiceStartCallback,
+    onend: voiceEndCallback,
+    rate:"1.0",
+    volume:"1"
+}
+
+function setPitchRate(rate){
+    parameters.rate = rate;
+}
+
+function speak(text, voice) {
+    responsiveVoice.clickEvent();
+    responsiveVoice.speak(text, voice, parameters);
+}
+
+function cancel() {
+    responsiveVoice.cancel();
+}
+
+function isSpeaking() {
+    responsiveVoice.isPlaying();
+}
+
+</script>
+</head>
